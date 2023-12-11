@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Adicionar Item</h1>
+    <form class="contato-form" method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <ul class="contato-ul">
+            <li class="contato-li">
+                {{ form.titulo.label(class="contato-label") }}
+                {{ form.titulo(class="contato-input") }}
+            </li>
+            <li class="contato-li">
+                {{ form.finalidade.label(class="contato-label") }}
+                {{ form.finalidade(class="contato-input") }}
+            </li>
+            <li class="contato-li">
+                {{ form.valor.label(class="contato-label") }}
+                {{ form.valor(class="contato-input") }}
+            </li>
+            <li>
+                {{ form.tipo.label(class="contato-label") }}
+                {{ form.tipo(class="contato-input") }}
+            </li>
+            <li class="contato-li">
+                {{ form.bairro.label(class="contato-label") }}
+                {{ form.bairro(class="contato-input") }}
+            </li>
+            <li class="contato-li">
+                {{ form.descricao.label(class="contato-label") }}
+                {{ form.descricao(id="descricao", class="contato-textarea") }}
+            </li>
+            <li class="contato-li">
+                {{ form.capa.label(class="contato-label") }}
+                {{ form.capa() }}
+            </li>
+            <li class="contato-li">
+                {{ form.imagens.label(class="contato-label") }}
+                {{ form.imagens() }}
+            </li>
+        </ul>
+        <button class="contato-button" type="submit">Adicionar</button>
+        <a style="color:rgb(255, 107, 107); margin-left:30px" href="{{ url_for('item_bp.itens') }}">CANCELAR</a>
+    </form>
+{% endblock %}
+
+{% block head %}
+    <title>Admin - Adicionar Item</title>
+{% endblock %}

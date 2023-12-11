@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Editar Item</h1>
+    <form class="contato-form" method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <ul class="contato-ul">
+            <li class="contato-li">
+                {{ form.titulo.label(class="contato-label") }}
+                {{ form.titulo(class="contato-input") }}
+            </li>
+            <li class="contato-li">
+                {{ form.finalidade.label(class="contato-label") }}
+                {{ form.finalidade(class="contato-input") }}
+            </li>
+            <li class="contato-li">
+                {{ form.valor.label(class="contato-label") }}
+                {{ form.valor(class="contato-input") }}
+            </li>
+            <li>
+                {{ form.tipo.label(class="contato-label") }}
+                {{ form.tipo(class="contato-input") }}
+            </li>
+            <li class="contato-li">
+                {{ form.bairro.label(class="contato-label") }}
+                {{ form.bairro(class="contato-input") }}
+            </li>
+            <li class="contato-li">
+                {{ form.descricao.label(class="contato-label") }}
+                {{ form.descricao(id="descricao", class="contato-textarea") }}
+            </li>
+            <li class="contato-li">
+                {{ form.capa.label(class="contato-label") }}
+                {{ form.capa() }}
+            </li>
+            <li class="contato-li">
+                {{ form.imagens.label(class="contato-label") }}
+                {{ form.imagens() }}
+            </li>
+        </ul>
+        <button class="contato-button" type="submit">Salvar</button>
+        <a style="color:rgb(255, 107, 107); margin-left:30px" href="{{ url_for('item_bp.itens', item_id=item.id) }}">CANCELAR</a>
+    </form>
+    <p>Imagens atuais do imóvel, ao adicionar novas imagens, estas serão substituídas. Lembre-se de adicionar todas juntas!</p>
+    {% for imagem in item.imagens %}
+        <img src="{{ url_for('item_bp.imagens_item', item_id=item.id, imagem_id=imagem.id) }}" alt="Imagem do Imóvel" class="imagem-edit"/>
+    {% endfor %}
+{% endblock %}
+
+{% block head %}
+    <title>Admin - Editar Item</title>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block content %}  
+    <form method="POST" action="{{ url_for('item_bp.index') }}" id="filtro-form">
+        {{ form.hidden_tag() }}
+        {{ form.finalidade(class="finalidade") }}
+        <select id="multiploBairro" name="bairro" multiple>
+            {% for value, label in form.bairro.choices %}
+                <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+        </select>
+        <select id="multiploTipo" name="tipo" multiple size="{{ form.tipo.choices|length }}">
+            {% for value, label in form.tipo.choices %}
+                <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        {{ form.valor_de(class="valor", placeholder="De R$") }}
+        {{ form.valor_a(class="valor", placeholder="Até R$") }}
+        {{ form.codigo(class="codigo", placeholder="Código") }}
+        <br>
+        <button class="botao-filtro" type="submit">Buscar</button>
+        <button class="botao-filtro"><a href="{{ url_for('item_bp.limpar_filtros') }}">Limpar Filtros</a></button>
+    </form>
+
+    <!-- Se o formulário foi submetido, exiba resultados da pesquisa -->
+    {% if resultados %}
+    <ul class="item-list">
+        {% for item in resultados %}
+            <li class="zoomable" id="list">
+                <p>Código: {{ item.id }}</p>
+                <p>{{ item.tipo }}</p>
+                <p>{{ item.finalidade }}</p>
+                {% if item.capa %}
+                    <img src="{{ url_for('item_bp.capa_item', item_id=item.id) }}" alt="{{ item.titulo }}" class="imagem"/>
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/sem-foto.jpg') }}" alt="{{ item.titulo }}" class="imagem"/>
+                {% endif %}
+                <p> {{ "R$ {:,.2f}".format(item.valor).replace('.', '|').replace(',', '.').replace('|', ',') if item.valor else 'Consulte' }}</p>
+                <a href="{{ url_for('item_bp.perfil', item_id=item.id) }}"><button class="botao-info">Ver mais informações</button></a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% if pagination %}
+        <div class="pagination">
+            {% if pagination.has_prev %}
+                <a href="{{ url_for('item_bp.index', page=pagination.prev_num) }}">« Anterior</a>
+            {% else %}
+                <span class="disabled">« Anterior</span>
+            {% endif %}
+        
+            {% for page_num in pagination.iter_pages() %}
+                {% if page_num and pagination.pages > 1 %}  {# Adiciona a verificação pagination.pages > 1 #}
+                    {% if page_num != pagination.page %}
+                        <a href="{{ url_for('item_bp.index', page=page_num) }}">{{ page_num }}</a>
+                    {% else %}
+                        <span class="current">{{ page_num }}</span>
+                    {% endif %}
+                {% elif pagination.pages == 1 %}
+                    <span class="current">1</span>  {# Se houver apenas uma página, exibe como página atual #}
+                {% else %}
+                    <span class="ellipsis">...</span>
+                {% endif %}
+            {% endfor %}
+        
+            {% if pagination.has_next %}
+                <a href="{{ url_for('item_bp.index', page=pagination.next_num) }}">Próxima »</a>
+            {% else %}
+                <span class="disabled">Próxima »</span>
+            {% endif %}
+        </div>    
+    {% endif %}
+    {% else %}
+        <h3>Nenhum resultado encontrado.</h3>
+    {% endif %}
+    <h2>Simuladores de Financiamento</h2>
+    <div class="simuladores">
+        <a class="zoomable" href="http://www42.bb.com.br/portalbb/imobiliario/creditoimobiliario/simular,802,2250,2250.bbx">
+            <img class="imagem-bb" src="{{ url_for('static', filename='images/bb.jpg') }}" alt="BB"> 
+        </a>
+        <a class="zoomable" href="https://www8.caixa.gov.br/siopiinternet-web/simulaOperacaoInternet.do?method=inicializarCasoUso">
+            <img class="imagem-caixa" src="{{ url_for('static', filename='images/caixa.jpg') }}" alt="BB"> 
+        </a>
+        <a class="zoomable" href="https://www.santander.com.br/hotsite/credito-financiamento-imobiliario/?ic=homepf-cardsprod-creditoimobiliario#/dados-pessoais">
+            <img class="imagem-santander" src="{{ url_for('static', filename='images/santander.jpg') }}" alt="BB"> 
+        </a>
+        <a class="zoomable" href="https://banco.bradesco/html/classic/produtos-servicos/emprestimo-e-financiamento/encontre-seu-credito/simuladores-imoveis.shtm#box1-comprar">
+            <img class="imagem-bradesco" src="{{ url_for('static', filename='images/bradesco.jpg') }}" alt="BB"> 
+        </a>
+    </div>
+    
+{% endblock %}
+
+{% block head %}
+    <title>Lar Ideal Imóveis</title>
+{% endblock %}

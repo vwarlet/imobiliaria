@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>FALE CONOSCO</h1>
+    <h3>Deixe sua dúvida, crítica ou sugestão.</h3>
+    <h4>Nos informe o que procura para comprar/alugar ou se deseja anunciar seu imóvel.</h4>
+    <form class="contato-form" method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <ul class="contato-ul">
+            <li class="contato-li">
+                {{ form.nome.label(class="contato-label") }}
+                {{ form.nome(class="contato-input") }}
+            </li>
+            <li class="contato-li">
+                {{ form.telefone.label(class="contato-label") }}
+                {{ form.telefone(id="telefone", class="contato-input") }}
+                <br><span id="telefone-error" class="error-message"></span>
+            </li>
+            <li class="contato-li">
+                {{ form.email.label(class="contato-label") }}
+                {{ form.email(id="email", class="contato-input") }}
+                <br><span id="email-error" class="error-message"></span>
+            </li>
+            <li class="contato-li">
+                {{ form.mensagem.label(class="contato-label") }}
+                {{ form.mensagem(id="mensagem", class="contato-textarea") }}
+                <!-- <br><span id="mensagem-error" class="error-message"></span> -->
+            </li>
+        </ul>
+        <button class="contato-button" type="submit">Enviar</button>
+    </form>
+{% endblock %}
+
+{% block head %}
+    <title>Lar Ideal Imóveis - Fale Conosco</title>
+{% endblock %}

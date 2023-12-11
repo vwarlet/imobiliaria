@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Adicionar, Editar e Remover Presentes</h1>
+    <a href="{{ url_for('item_bp.adicionar_item') }}"><button class="add-button">Adicionar Item</button></a>
+    <ul class="item-list">
+        {% for item in itens %}
+            <li class="zoomable editar-item" id="list">
+                <p>codigo {{ item.id }}</p>
+                {% if item.capa %}
+                    <img src="{{ url_for('item_bp.capa_item', item_id=item.id) }}" alt="{{ item.titulo }}" class="imagem"/>
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/sem-foto.jpg') }}" alt="{{ item.titulo }}" class="imagem"/>
+                {% endif %}
+                <p>{{ item.nome }}</p>
+                <p> {{ "R$ {:,.2f}".format(item.valor).replace('.', '|').replace(',', '.').replace('|', ',') if item.valor else 'Consulte' }}</p>
+                <a href="{{ url_for('item_bp.perfil', item_id=item.id) }}"><button class="botao-info">Ver mais informações</button></a>
+                <br>
+                <a href="{{ url_for('item_bp.editar_item', item_id=item.id) }}">
+                    <button id="editar" class="button-editar-excluir"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                </a>
+                <form method="post" action="{{ url_for('item_bp.excluir_item', item_id=item.id) }}" onsubmit="return confirmExclusao()">
+                    {{ form.hidden_tag() }}
+                    <button id="excluir" type="submit" class="button-editar-excluir btn-excluir"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+<script>
+    document.getElementById('excluir').addEventListener('click', function() {
+        var confirmacao = confirm('Quer mesmo excluir?');
+        if (!confirmacao) {
+            event.preventDefault();  // Impede o envio do formulário se o usuário cancelar
+        }
+        else {
+            alert ("Excluído!")
+        }
+    });
+</script>
+{% endblock %}
+
+{% block head %}
+    <title>Admin - Lista de Itens</title>
+{% endblock %}

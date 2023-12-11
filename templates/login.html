@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Login</h1>
+    <form class="contato-form" method="post">
+        {{ form.csrf_token }}
+        <ul class="contato-ul">
+            <li class="contato-li">
+                <label class="contato-label" for="username">Nome de Usuário:</label>
+                <input class="contato-input" type="text" name="username" id="username">
+            </li>
+            <li class="contato-li">
+                <label class="contato-label" for="password">Senha:</label>
+                <input class="contato-input" type="password" name="password" id="password">
+            </li>
+        </ul>
+        <button class="contato-button" type="submit">Login</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="alert alert-{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block head %}
+    <title>Página de Login</title>
+{% endblock %}

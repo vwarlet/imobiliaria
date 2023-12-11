@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Mensagens dos Clientes</h1>
+        <ul class="lista-mensagens">
+            {% for contato in contatos %}
+            <li class="zoomable item-mensagem">
+                <form class="form-excluir" method="post" action="{{ url_for('contato_bp.excluir_mensagem', contato_id=contato.id) }}" onsubmit="return confirmExclusao()">
+                    {{ form.hidden_tag() }}
+                    <button class="button-excluir" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                </form>
+                <p>{{ contato.nome }} - {{ contato.telefone }}</p>
+                <p>{{ contato.email }}</p>
+                <p class="mensagem">{{ contato.mensagem }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+{% endblock %}
+
+{% block head %}
+    <title>Admin Lar Ideal Imóveis - Mensagens</title>
+{% endblock %}

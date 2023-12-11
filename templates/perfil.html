@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="perfil">
+      <h1>IMÓVEL {{ item.id }} - {{ "R$ {:,.2f}".format(item.valor).replace('.', '|').replace(',', '.').replace('|', ',') if item.valor else 'Consulte' }}</h1>
+      <p>{{ tipo_value }} - {{ bairro_value }}</p>
+      <p>{{ item.descricao }}</p>
+      {% if item.capa %}
+      <div class="gallery">
+        <div id="preview-container">
+          <i id="prev-preview" class="fa fa-chevron-left preview-arrow"></i>
+          <img id="preview" src="" alt="Preview Image">
+          <i id="next-preview" class="fa fa-chevron-right preview-arrow"></i>
+          <div id="image-number"></div>
+        </div>
+        <div class="wrapper">
+          <i id="left" class="fa fa-chevron-left"></i>
+          <div id="carousel">
+              <img src="{{ url_for('item_bp.capa_item', item_id=item.id) }}" alt="{{ item.titulo }}" class="imagem"/>
+              {% for imagem in item.imagens %}
+                <img src="{{ url_for('item_bp.imagens_item', item_id=item.id, imagem_id=imagem.id) }}" alt="Imagem do Imóvel" class="imagem"/>
+              {% endfor %}
+          </div>
+          <i id="right" class="fa fa-chevron-right"></i>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+{% endblock %}
+
+{% block head %}
+  <title>Imóvel {{ item.id }} - {{ item.titulo }}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='carousel/style.css') }}">
+  <script src="{{ url_for('static', filename='carousel/script.js') }}" defer></script>
+{% endblock %}

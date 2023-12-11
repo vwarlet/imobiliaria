@@ -1,0 +1,509 @@
+:root {
+    --cor-principal: #009688; /* Defina a cor que deseja usar */
+    --cor-secundaria: #00796b;
+  }
+
+html {
+    height: 100%;
+    min-height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+h1, h2, h3, h4, h5 {
+    text-align: center;
+}
+
+/* Estilo para o header */
+header {
+    background-color: var(--cor-principal);
+    color: white;
+    padding: 15px 0;
+}
+
+/* Estilo para a barra de navegação */
+.nav-lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+/* Estilo para cada lista no header */
+.nav-lista ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para os itens de lista no header */
+.nav-lista li {
+    margin: 0 15px;
+}
+
+.lista-esquerda img{
+    width: 30%;
+    height: auto;
+}
+
+/* Estilo para o conteúdo central da página */
+.content {
+    margin: 20px 0 60px; /* Adapte conforme necessário, a margem inferior deve ser igual à altura do footer */
+}
+
+/* Estilo para o footer */
+footer {
+    background-color: var(--cor-principal);
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+
+/* Estilo para o formulário */
+form {
+    text-align: center;
+    background-color: #2c2c2c;
+    padding: 10px;
+    margin-top: -20px;
+}
+
+/* Estilo para os selects e inputs do formulário */
+form select,
+form input,
+form button {
+    display: inline-block;
+    margin: 5px; /* Adapte conforme necessário */
+}
+
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--cor-principal);
+    color: #ffffff; 
+}
+/* .select2-selection--multiple:before {
+    content: "";
+    position: absolute;
+    right: 7px;
+    top: 42%;
+    border-top: 5px solid #888;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+} */
+
+.botao-filtro {
+    background-color: var(--cor-principal);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.botao-filtro:hover{
+    background-color: #6e6e6e;
+    transition: 0.5s;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold; /* Links mais destacados */
+}
+
+.item-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 10%;
+}
+
+.zoomable {
+    width: 20%; /* Ajuste conforme necessário para a margem e o espaçamento entre os cards */
+    margin: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.zoomable:hover {
+    transform: scale(1.05);
+}
+
+.imagem {
+    width: 100%;
+    height: 200px; /* Ajuste conforme necessário para a altura desejada */
+    object-fit: cover; /* Garante que a imagem cubra a área mantendo sua proporção */
+    border-top: 1px solid var(--cor-principal);
+    border-bottom: 1px solid var(--cor-principal);
+}
+
+.imagem-edit {
+    width: 10%;
+    height: 150px; /* Ajuste conforme necessário para a altura desejada */
+    border: 1px solid var(--cor-principal);
+}
+
+.zoomable p {
+    margin: 10px;
+}
+
+.botao-info {
+    background-color: var(--cor-principal);
+    color: white;
+    padding: 10px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
+
+.botao-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.link-info {
+    cursor: pointer;
+    background-color: blueviolet;
+}
+
+/* Limpar a margem direita do último card para evitar quebra de linha */
+.zoomable:nth-child(4n) {
+    margin-right: 0;
+}
+
+/* Estilo para a paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    text-decoration: none;
+    color: var(--cor-principal);
+    border: 1px solid var(--cor-principal);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination a:hover {
+    background-color: var(--cor-principal);
+    color: white;
+}
+
+.pagination .current {
+    background-color: var(--cor-principal);
+    color: white;
+    border: 1px solid var(--cor-principal);
+}
+
+.pagination .ellipsis {
+    margin: 5px;
+}
+
+.pagination .disabled {
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.logotipo {
+    width: 10%;
+    height: auto;
+}
+
+form select,
+form input,
+form button {
+    display: inline-block;
+    margin: 10px;
+}
+
+.select2-container--default .select2-results__option,
+.select2-container--default .select2-selection--multiple {
+    margin: 10px; /* Adapte conforme necessário */
+}
+
+.select2-container .select2-results__option[aria-selected=true] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select2-container .select2-results__option[aria-selected=true]::after {
+    content: '\2713'; /* Código Unicode para o caractere '✓' */
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+#tipo, #finalidade, #bairro {
+    width: 84%;
+}
+
+.finalidade, .valor, .codigo {
+    width: 270px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#finalidade.finalidade {
+    width: 270px;
+    height: 40px;
+}
+
+
+.simuladores {
+    display: flex;
+    width: 70%;
+    margin-left: 25%;
+}
+
+.simuladores a {
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    width: 15%;
+}
+
+.imagem-bb {
+    width: 80%;
+    margin-top: 20%;
+    margin-left: 10%;
+}
+
+.imagem-caixa {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.imagem-santander {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.imagem-bradesco {
+    width: 100%;
+    margin-top: 10%;
+}
+
+.footer-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-esquerda,
+.lista-centralizada,
+.lista-direita {
+    text-align: left;
+    flex: 1;
+}
+
+p {
+    font-weight: bold;
+}
+
+.contato-form {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #333333; /* Cor de fundo do formulário */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.contato-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contato-li {
+    margin-bottom: 15px;
+}
+
+.contato-label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.contato-input,
+.contato-textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ffffff; /* Cor da borda dos inputs */
+    border-radius: 5px;
+    background-color: #f0f0f0; /* Cor de fundo dos inputs */
+    font-size: 16px;
+    resize: none;
+}
+
+.contato-textarea {
+    width: 80%; /* Ajuste conforme necessário */
+    padding: 10px;
+    border: 1px solid #ffffff; /* Cor da borda dos inputs */
+    border-radius: 5px;
+    background-color: #f0f0f0; /* Cor de fundo dos inputs */
+    font-size: 16px;
+    height: 150px; /* Altura inicial da textarea */
+    resize: none; /* Impede redimensionamento da textarea */
+}
+
+.contato-button {
+    background-color: #009688; /* Cor de fundo do botão */
+    color: #ffffff; /* Cor do texto do botão */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contato-button:hover {
+    background-color: var(--cor-secundaria); /* Cor de fundo do botão ao passar o mouse */
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
+
+.mensagem {
+    border-top: 1px solid black;
+    padding-top: 10px;
+    font-weight: normal;
+}
+
+.form-excluir {
+    background-color: white;
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+
+.button-excluir {
+    border: none;      
+    background: white;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(173, 0, 0);
+    font-size: 24px;
+    position: absolute;
+    right: 10px;
+    padding: 10px;
+}
+
+.button-excluir:hover{
+    color: rgb(243, 0, 0)
+}
+
+.item-mensagem p {
+    word-wrap: break-word;
+}
+
+.lista-mensagens {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.item-mensagem {
+    width: calc(20% - 10px);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.add-button {
+    background-color: var(--cor-principal);
+    margin-left: 45%;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.editar-item {
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+.button-editar-excluir {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    margin-top: 5px; /* Ajuste conforme necessário para o espaçamento vertical */
+    margin-right: 5px;
+    color: white;
+    background-color: rgb(160, 160, 20);
+    border: none;
+}
+
+.btn-excluir {
+    color: white;
+    background-color: red;
+    right: 0;
+    cursor: pointer;
+}
+
+.perfil h1 {
+    color:#004139
+}
+
+.perfil p{
+    margin-left: 35%;
+}
+
+.descricao {
+    margin-left: 35%;
+    margin: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.redes-sociais {
+    font-size:28px !important; 
+    margin-right:10px;
+    margin-bottom: 10px;
+}
+
+a button {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
