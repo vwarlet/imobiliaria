@@ -501,9 +501,27 @@ p {
     margin-bottom: 10px;
 }
 
+.redes-sociais:hover {
+    color: var(--cor-secundaria);
+    transition: 0.3s;
+}
+
 a button {
     color: #ffffff;
     cursor: pointer;
     font-weight: bold;
 }
 
+.valor {
+    width: 50%;
+    color: #ffffff;
+    margin-left: 25%;
+    margin-top: 20px;
+}
+
+.alert {
+    margin-left: 40%;
+    color: var(--cor-principal);
+    font-weight: bold;
+    list-style: none;
+}

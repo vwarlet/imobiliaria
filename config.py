@@ -1,8 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+import os
 
 
-SQLALCHEMY_DATABASE_URI = 'sqlite:///imoveis_database.db'
+SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
 db = SQLAlchemy()
 
 login_manager = LoginManager()

@@ -122,7 +122,41 @@ $(document).ready(function () {
     }
 });
 
-
 function confirmExclusao() {
     return confirm("Tem certeza que deseja excluir esta mensagem?");
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var slider = document.getElementById('slider-range');
+
+    noUiSlider.create(slider, {
+        start: [0, 3000000],
+        connect: true,
+        range: {
+            'min': 0,
+            'max': 3000000
+        },
+        step: 50000,
+        format: {
+            to: function (value) {
+                // Usar ponto como separador decimal
+                return value.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ".").replace(',', ',');
+            },
+            from: function (value) {
+                // Remover ponto e substituir vírgula por ponto
+                return Number(value.replace(/\./g, '').replace(',', '.'));
+            }
+        }
+    });
+
+    slider.noUiSlider.on('update', function (values, handle) {
+        var value = values[handle];
+        var displayId = handle === 0 ? 'valorDeDisplay' : 'valorADisplay';
+        var prefix = handle === 0 ? 'De ' : 'a ';
+        // Adicionar ,00 e o prefixo para exibição
+        document.getElementById(displayId).textContent = prefix + 'R$' + value + ',00';
+        // Remover ,00 para a comparação no backend
+        document.getElementById('valor_' + (handle === 0 ? 'de' : 'a')).value = value.replace('R$ ', '').replace(/\./g, '').replace(',', '');
+    });
+});
+

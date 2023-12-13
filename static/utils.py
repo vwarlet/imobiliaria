@@ -1,3 +1,7 @@
+import os
+
+USERS = {'admin': {'username': 'admin', 'password': os.getenv('SENHA_ADMIN')}}
+
 TIPOS = [
     ('casa', 'Casa'), 
     ('apartamento', 'Apartamento'), 

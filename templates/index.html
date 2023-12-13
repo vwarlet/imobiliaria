@@ -14,10 +14,17 @@
                 <option value="{{ value }}">{{ label }}</option>
             {% endfor %}
         </select>
-        <br>
-        {{ form.valor_de(class="valor", placeholder="De R$") }}
-        {{ form.valor_a(class="valor", placeholder="Até R$") }}
+        <!-- {{ form.valor_de(class="valor", placeholder="De R$") }}
+        {{ form.valor_a(class="valor", placeholder="Até R$") }} -->
         {{ form.codigo(class="codigo", placeholder="Código") }}
+        <div class="valor">
+            <div id="slider-range"></div>
+            <br>
+            <input type="hidden" id="valor_de" name="valor_de" value="0">
+            <input type="hidden" id="valor_a" name="valor_a" value="3000000">
+            <span id="valorDeDisplay">R$ 50,000</span>
+            <span id="valorADisplay">R$ 3,000,000</span>
+        </div>
         <br>
         <button class="botao-filtro" type="submit">Buscar</button>
         <button class="botao-filtro"><a href="{{ url_for('item_bp.limpar_filtros') }}">Limpar Filtros</a></button>

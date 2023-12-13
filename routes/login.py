@@ -2,11 +2,10 @@ from flask import Blueprint, request, session, redirect, flash, url_for, render_
 from flask_login import login_user, login_required, logout_user
 from models import User, LoginForm
 from config import login_manager
+from static.utils import USERS
 
 
 login_bp = Blueprint('login_bp', __name__)
-
-users = {'admin': {'username': 'admin', 'password': 'admin'}}  # Substitua com um armazenamento de usuários real
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -18,7 +17,7 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        if users.get(username) and users[username]['password'] == password:
+        if USERS.get(username) and USERS[username]['password'] == password:
             session['username'] = username
             user = User(username)
             login_user(user)
