@@ -19,6 +19,7 @@ body {
 
 h1, h2, h3, h4, h5 {
     text-align: center;
+    color: var(--cor-secundaria)
 }
 
 /* Estilo para o header */
@@ -51,7 +52,7 @@ header {
 }
 
 .lista-esquerda img{
-    width: 30%;
+    width: 50%;
     height: auto;
 }
 
@@ -64,7 +65,7 @@ header {
 footer {
     background-color: var(--cor-principal);
     color: white;
-    padding: 15px 0;
+    padding: 0;
     text-align: center;
     margin-top: auto;
 }
@@ -89,7 +90,7 @@ form button {
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background-color: var(--cor-principal);
-    color: #ffffff; 
+    color: #ffffff;
 }
 /* .select2-selection--multiple:before {
     content: "";
@@ -330,6 +331,18 @@ form button {
     flex: 1;
 }
 
+.nav-lista .lista-direita {
+    margin-left: 13%;
+    font-size: 16px;
+    font-weight: normal;
+    display: block;
+}
+
+.nav-lista a:hover,
+.footer-list a:hover {
+    color: #cccccc;
+}
+
 p {
     font-weight: bold;
 }
@@ -414,7 +427,7 @@ p {
 }
 
 .button-excluir {
-    border: none;      
+    border: none;
     background: white;
     padding: 0;
     margin: 0;
@@ -479,10 +492,6 @@ p {
     cursor: pointer;
 }
 
-.perfil h1 {
-    color:#004139
-}
-
 .perfil p{
     margin-left: 35%;
 }
@@ -496,14 +505,9 @@ p {
 }
 
 .redes-sociais {
-    font-size:28px !important; 
+    font-size:28px !important;
     margin-right:10px;
     margin-bottom: 10px;
-}
-
-.redes-sociais:hover {
-    color: var(--cor-secundaria);
-    transition: 0.3s;
 }
 
 a button {
@@ -513,9 +517,9 @@ a button {
 }
 
 .valor {
-    width: 50%;
+    width: 20%;
     color: #ffffff;
-    margin-left: 25%;
+    margin-left: 40%;
     margin-top: 20px;
 }
 
@@ -524,4 +528,8 @@ a button {
     color: var(--cor-principal);
     font-weight: bold;
     list-style: none;
+}
+
+.zoomable p {
+    color: #333333;
 }

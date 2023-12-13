@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block content %}  
+{% block content %}
     <form method="POST" action="{{ url_for('item_bp.index') }}" id="filtro-form">
         {{ form.hidden_tag() }}
         {{ form.finalidade(class="finalidade") }}
@@ -35,6 +35,7 @@
     <ul class="item-list">
         {% for item in resultados %}
             <li class="zoomable" id="list">
+                <a href="{{ url_for('item_bp.perfil', item_id=item.id) }}">
                 <p>Código: {{ item.id }}</p>
                 <p>{{ item.tipo }}</p>
                 <p>{{ item.finalidade }}</p>
@@ -44,7 +45,7 @@
                     <img src="{{ url_for('static', filename='images/sem-foto.jpg') }}" alt="{{ item.titulo }}" class="imagem"/>
                 {% endif %}
                 <p> {{ "R$ {:,.2f}".format(item.valor).replace('.', '|').replace(',', '.').replace('|', ',') if item.valor else 'Consulte' }}</p>
-                <a href="{{ url_for('item_bp.perfil', item_id=item.id) }}"><button class="botao-info">Ver mais informações</button></a>
+                <button class="botao-info">Ver mais informações</button></a>
             </li>
         {% endfor %}
     </ul>
@@ -55,7 +56,7 @@
             {% else %}
                 <span class="disabled">« Anterior</span>
             {% endif %}
-        
+
             {% for page_num in pagination.iter_pages() %}
                 {% if page_num and pagination.pages > 1 %}  {# Adiciona a verificação pagination.pages > 1 #}
                     {% if page_num != pagination.page %}
@@ -69,33 +70,34 @@
                     <span class="ellipsis">...</span>
                 {% endif %}
             {% endfor %}
-        
+
             {% if pagination.has_next %}
                 <a href="{{ url_for('item_bp.index', page=pagination.next_num) }}">Próxima »</a>
             {% else %}
                 <span class="disabled">Próxima »</span>
             {% endif %}
-        </div>    
+        </div>
     {% endif %}
     {% else %}
         <h3>Nenhum resultado encontrado.</h3>
     {% endif %}
+    <br>
     <h2>Simuladores de Financiamento</h2>
     <div class="simuladores">
-        <a class="zoomable" href="http://www42.bb.com.br/portalbb/imobiliario/creditoimobiliario/simular,802,2250,2250.bbx">
-            <img class="imagem-bb" src="{{ url_for('static', filename='images/bb.jpg') }}" alt="BB"> 
+        <a class="zoomable" target="_blank" href="http://www42.bb.com.br/portalbb/imobiliario/creditoimobiliario/simular,802,2250,2250.bbx">
+            <img class="imagem-bb" src="{{ url_for('static', filename='images/bb.jpg') }}" alt="BB">
         </a>
-        <a class="zoomable" href="https://www8.caixa.gov.br/siopiinternet-web/simulaOperacaoInternet.do?method=inicializarCasoUso">
-            <img class="imagem-caixa" src="{{ url_for('static', filename='images/caixa.jpg') }}" alt="BB"> 
+        <a class="zoomable"target="_blank"  href="https://www8.caixa.gov.br/siopiinternet-web/simulaOperacaoInternet.do?method=inicializarCasoUso">
+            <img class="imagem-caixa" src="{{ url_for('static', filename='images/caixa.jpg') }}" alt="Caixa">
         </a>
-        <a class="zoomable" href="https://www.santander.com.br/hotsite/credito-financiamento-imobiliario/?ic=homepf-cardsprod-creditoimobiliario#/dados-pessoais">
-            <img class="imagem-santander" src="{{ url_for('static', filename='images/santander.jpg') }}" alt="BB"> 
+        <a class="zoomable" target="_blank" href="https://www.santander.com.br/hotsite/credito-financiamento-imobiliario/?ic=homepf-cardsprod-creditoimobiliario#/dados-pessoais">
+            <img class="imagem-santander" src="{{ url_for('static', filename='images/santander.jpg') }}" alt="Santander">
         </a>
-        <a class="zoomable" href="https://banco.bradesco/html/classic/produtos-servicos/emprestimo-e-financiamento/encontre-seu-credito/simuladores-imoveis.shtm#box1-comprar">
-            <img class="imagem-bradesco" src="{{ url_for('static', filename='images/bradesco.jpg') }}" alt="BB"> 
+        <a class="zoomable" target="_blank" href="https://banco.bradesco/html/classic/produtos-servicos/emprestimo-e-financiamento/encontre-seu-credito/simuladores-imoveis.shtm#box1-comprar">
+            <img class="imagem-bradesco" src="{{ url_for('static', filename='images/bradesco.jpg') }}" alt="Bradesco">
         </a>
     </div>
-    
+
 {% endblock %}
 
 {% block head %}

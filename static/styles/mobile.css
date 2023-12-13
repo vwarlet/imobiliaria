@@ -1,0 +1,109 @@
+/* Estilo para dispositivos móveis */
+@media screen and (max-width: 767px) {
+    body {
+        width: 100%;
+        overflow-x: hidden; /* Adicionado para impedir rolagem horizontal */
+    }
+
+    header {
+        text-align: center;
+    }
+
+    h1, h2, h3, h4 {
+        margin: 0 10px;
+    }
+
+    .nav-lista {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lista-esquerda img {
+        width: 100%;
+        margin: 0;
+    }
+
+    .lista-centralizada {
+        flex-direction: column; /* Adicionado para exibir itens em uma coluna */
+    }
+
+    .lista-centralizada li {
+        margin: 10px;
+    }
+
+    .lista-direita li{
+        margin-top: 20px;
+    }
+
+    .content {
+        margin: 20px 0;
+    }
+
+    footer {
+        text-align: center; /* Alterado para centralizar textos */
+        margin-top: 20px;
+    }
+
+    .footer-list,
+    .footer-list ul,
+    .footer-list li {
+        text-align: center;
+    }
+
+    .simuladores {
+        display: flex;
+        flex-wrap: wrap; /* Adicionado para quebrar linha em telas menores */
+        justify-content: flex-start; /* Adicionado para espaçar as imagens */
+        margin: 0 auto; /* Centralizado */
+        width: 90%; /* Ajuste conforme necessário */
+    }
+
+    .simuladores a {
+        width: 35%; /* 2 imagens por linha com algum espaçamento entre elas */
+        margin: 10px;
+    }
+
+    .zoomable {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 20px;
+    }
+
+    .zoomable:hover {
+        transform: none;
+    }
+
+    .item-list {
+        margin-left: 0;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .valor {
+        width: 80%;
+        margin-bottom: 20px;
+        margin-left: 10%;
+    }
+
+    .footer-list {
+        flex-direction: column; /* Alterado para uma coluna */
+        align-items: center; /* Centralizado */
+    }
+
+    .pagination {
+        font-size: 14px;
+    }
+
+    footer img {
+        display: none;
+    }
+
+    .perfil img {
+        width: 90%;
+    }
+
+    iframe {
+        width: 75%;
+        height: auto;
+    }
+}

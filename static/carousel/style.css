@@ -1,3 +1,8 @@
+:root {
+  --cor-principal: #009688; /* Defina a cor que deseja usar */
+  --cor-secundaria: #00796b;
+}
+
 .gallery {
   display: flex;
   flex-direction: column;
@@ -20,7 +25,7 @@
 }
 .wrapper i{
   align-items: center;
-  color: #000000;
+  color: var(--cor-secundaria);
   cursor: pointer;
   position: absolute;
   text-align: center;
@@ -29,7 +34,7 @@
   transform: translateY(-50%);
 }
 .wrapper i:hover{
-  color: #969696;
+  color: var(--cor-principal);
 }
 .wrapper i:first-child{
   left: -20px;
@@ -66,7 +71,7 @@
   opacity: 100%;
 }
 .preview-arrow {
-  color: #000;
+  color: var(--cor-secundaria);
   cursor: pointer;
   position: absolute;
   text-align: center;
@@ -79,7 +84,7 @@
   transform: translateY(-50%);
 }
 .preview-arrow:hover {
-  color:#6d6d6d;
+  color: var(--cor-principal);
 }
 #preview-container {
   position: relative;
