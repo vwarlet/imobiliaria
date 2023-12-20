@@ -72,7 +72,7 @@ imobiliaria
 |   |   |   style.css
 |   |   script.js
 |   |   utils.py
-|   └───templates
+└───templates
 |   │   adicionar.html
 |   │   corretores.html
 |   │   editar.html

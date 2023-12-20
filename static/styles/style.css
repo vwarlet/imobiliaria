@@ -1,5 +1,5 @@
 :root {
-    --cor-principal: #009688; /* Defina a cor que deseja usar */
+    --cor-principal: #009688;
     --cor-secundaria: #00796b;
   }
 
@@ -22,22 +22,57 @@ h1, h2, h3, h4, h5 {
     color: var(--cor-secundaria)
 }
 
-/* Estilo para o header */
 header {
     background-color: var(--cor-principal);
     color: white;
     padding: 15px 0;
 }
 
-/* Estilo para a barra de navegação */
+.up-header {
+    background-color: var(--cor-secundaria);
+    color: white;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.up-header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.up-header li {
+    margin-right: 30px;
+    font-size: 14px;
+}
+
+.up-header a:hover {
+    color: #aaa;
+}
+
+.up-header .redes-sociais {
+    font-size: 30px;
+    height: 1px;
+    margin-top: 5px;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.lista-esquerda img {
+    width: 50%;
+    height: auto;
+}
+
 .nav-lista {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     font-size: 20px;
 }
 
-/* Estilo para cada lista no header */
 .nav-lista ul {
     list-style: none;
     margin: 0;
@@ -46,22 +81,14 @@ header {
     align-items: center;
 }
 
-/* Estilo para os itens de lista no header */
 .nav-lista li {
     margin: 0 15px;
 }
 
-.lista-esquerda img{
-    width: 50%;
-    height: auto;
-}
-
-/* Estilo para o conteúdo central da página */
 .content {
-    margin: 20px 0 60px; /* Adapte conforme necessário, a margem inferior deve ser igual à altura do footer */
+    margin: 20px 0 60px;
 }
 
-/* Estilo para o footer */
 footer {
     background-color: var(--cor-principal);
     color: white;
@@ -70,8 +97,6 @@ footer {
     margin-top: auto;
 }
 
-
-/* Estilo para o formulário */
 form {
     text-align: center;
     background-color: #2c2c2c;
@@ -79,28 +104,17 @@ form {
     margin-top: -20px;
 }
 
-/* Estilo para os selects e inputs do formulário */
 form select,
 form input,
 form button {
     display: inline-block;
-    margin: 5px; /* Adapte conforme necessário */
+    margin: 5px;
 }
-
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background-color: var(--cor-principal);
     color: #ffffff;
 }
-/* .select2-selection--multiple:before {
-    content: "";
-    position: absolute;
-    right: 7px;
-    top: 42%;
-    border-top: 5px solid #888;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-} */
 
 .botao-filtro {
     background-color: var(--cor-principal);
@@ -122,7 +136,7 @@ form button {
 a {
     color: #ffffff;
     text-decoration: none;
-    font-weight: bold; /* Links mais destacados */
+    font-weight: bold;
 }
 
 .item-list {
@@ -135,7 +149,7 @@ a {
 }
 
 .zoomable {
-    width: 20%; /* Ajuste conforme necessário para a margem e o espaçamento entre os cards */
+    width: 20%;
     margin: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -149,15 +163,15 @@ a {
 
 .imagem {
     width: 100%;
-    height: 200px; /* Ajuste conforme necessário para a altura desejada */
-    object-fit: cover; /* Garante que a imagem cubra a área mantendo sua proporção */
+    height: 200px;
+    object-fit: cover;
     border-top: 1px solid var(--cor-principal);
     border-bottom: 1px solid var(--cor-principal);
 }
 
 .imagem-edit {
     width: 10%;
-    height: 150px; /* Ajuste conforme necessário para a altura desejada */
+    height: 150px;
     border: 1px solid var(--cor-principal);
 }
 
@@ -189,12 +203,10 @@ a {
     background-color: blueviolet;
 }
 
-/* Limpar a margem direita do último card para evitar quebra de linha */
 .zoomable:nth-child(4n) {
     margin-right: 0;
 }
 
-/* Estilo para a paginação */
 .pagination {
     display: flex;
     justify-content: center;
@@ -247,7 +259,7 @@ form button {
 
 .select2-container--default .select2-results__option,
 .select2-container--default .select2-selection--multiple {
-    margin: 10px; /* Adapte conforme necessário */
+    margin: 10px;
 }
 
 .select2-container .select2-results__option[aria-selected=true] {
@@ -277,7 +289,6 @@ form button {
     width: 270px;
     height: 40px;
 }
-
 
 .simuladores {
     display: flex;
@@ -331,6 +342,10 @@ form button {
     flex: 1;
 }
 
+.nav-lista .lista-centralizada {
+    margin-left: 25px;
+}
+
 .nav-lista .lista-direita {
     margin-left: 13%;
     font-size: 16px;
@@ -350,7 +365,7 @@ p {
 .contato-form {
     max-width: 600px;
     margin: 20px auto;
-    background-color: #333333; /* Cor de fundo do formulário */
+    background-color: #333333;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -376,27 +391,27 @@ p {
 .contato-textarea {
     width: 80%;
     padding: 10px;
-    border: 1px solid #ffffff; /* Cor da borda dos inputs */
+    border: 1px solid #ffffff;
     border-radius: 5px;
-    background-color: #f0f0f0; /* Cor de fundo dos inputs */
+    background-color: #f0f0f0;
     font-size: 16px;
     resize: none;
 }
 
 .contato-textarea {
-    width: 80%; /* Ajuste conforme necessário */
+    width: 80%;
     padding: 10px;
-    border: 1px solid #ffffff; /* Cor da borda dos inputs */
+    border: 1px solid #ffffff;
     border-radius: 5px;
-    background-color: #f0f0f0; /* Cor de fundo dos inputs */
+    background-color: #f0f0f0;
     font-size: 16px;
-    height: 150px; /* Altura inicial da textarea */
-    resize: none; /* Impede redimensionamento da textarea */
+    height: 150px;
+    resize: none;
 }
 
 .contato-button {
-    background-color: #009688; /* Cor de fundo do botão */
-    color: #ffffff; /* Cor do texto do botão */
+    background-color: #009688;
+    color: #ffffff;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -405,7 +420,7 @@ p {
 }
 
 .contato-button:hover {
-    background-color: var(--cor-secundaria); /* Cor de fundo do botão ao passar o mouse */
+    background-color: var(--cor-secundaria);
 }
 
 .error-message {
@@ -478,7 +493,7 @@ p {
     position: absolute;
     top: 0;
     right: 30px;
-    margin-top: 5px; /* Ajuste conforme necessário para o espaçamento vertical */
+    margin-top: 5px;
     margin-right: 5px;
     color: white;
     background-color: rgb(160, 160, 20);
@@ -504,8 +519,9 @@ p {
     overflow: hidden;
 }
 
-.redes-sociais {
-    font-size:28px !important;
+.nav-lista .redes-sociais,
+.footer-list .redes-sociais {
+    font-size:28px;
     margin-right:10px;
     margin-bottom: 10px;
 }
